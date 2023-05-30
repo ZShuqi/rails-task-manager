@@ -1,0 +1,14 @@
+<h2><%= "My tasks" %></h2>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><input type="checkbox">
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to task_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"} do %>
+      <i class="fa-regular fa-trash-can"></i>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Add a new list", "/tasks/new" %>
+<%# <i class="fa-regular fa-square-check"></i>
+    <i class="fa-regular fa-square"></i> %>
